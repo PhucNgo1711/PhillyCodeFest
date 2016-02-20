@@ -15,7 +15,8 @@ angular.module('app.routes', [])
         
     .state('login', {
       url: '/pageLogin',
-      templateUrl: 'templates/login.html'
+      templateUrl: 'templates/login.html',
+      controller: 'loginCtrl'
     })
         
       
@@ -24,7 +25,8 @@ angular.module('app.routes', [])
         
     .state('signup', {
       url: '/pageSignup',
-      templateUrl: 'templates/signup.html'
+      templateUrl: 'templates/signup.html',
+      controller: 'signupCtrl'
     })
         
       
@@ -35,7 +37,8 @@ angular.module('app.routes', [])
       url: '/pageUpload',
       views: {
         'tab7': {
-          templateUrl: 'templates/upload.html'
+          templateUrl: 'templates/upload.html',
+          controller: 'uploadCtrl'
         }
       }
     })
@@ -48,7 +51,8 @@ angular.module('app.routes', [])
       url: '/pageUser',
       views: {
         'tab8': {
-          templateUrl: 'templates/dashboardUser.html'
+          templateUrl: 'templates/dashboardUser.html',
+          controller: 'dashboardUserCtrl'
         }
       }
     })
@@ -61,7 +65,8 @@ angular.module('app.routes', [])
       url: '/pageSponsor',
       views: {
         'tab8': {
-          templateUrl: 'templates/dashboardSponsor.html'
+          templateUrl: 'templates/dashboardSponsor.html',
+          controller: 'dashboardSponsorCtrl'
         }
       }
     })
@@ -74,7 +79,8 @@ angular.module('app.routes', [])
       url: '/pageProfile',
       views: {
         'tab9': {
-          templateUrl: 'templates/profile.html'
+          templateUrl: 'templates/profile.html',
+          controller: 'profileCtrl'
         }
       }
     })
@@ -95,7 +101,8 @@ angular.module('app.routes', [])
       url: '/pageNoti',
       views: {
         'tab11': {
-          templateUrl: 'templates/notification.html'
+          templateUrl: 'templates/notification.html',
+          controller: 'notificationCtrl'
         }
       }
     })

@@ -1,24 +1,23 @@
 <ion-view style="" title="Login">
-    <ion-content class="has-header" scroll="false" overflow-scroll="true" padding="true">
-        <form style="" class="list">
-            <ion-list style="">
-                <label style="" class="item item-input">
-                    <span class="input-label">Username</span>
-                    <input placeholder="Email" type="text">
-                </label>
-                <label style="" class="item item-input">
-                    <span class="input-label">Password</span>
-                    <input placeholder="Password" type="password">
-                </label>
-            </ion-list>
-            <div style="height: 40px;" class="spacer"></div>
-            <div style="" class="button-bar">
-                <a style="" class="button button-calm button-block " ui-sref="tabsController.dashboardUser">User</a>
-                <a style="" class="button button-energized button-block " ui-sref="tabsController.dashboardSponsor">Sponsor</a>
-            </div>
-            <a style="" class="button button-positive button-clear button-block " ui-sref="signup">Or create an account</a>
-        </form>
-        <div style="width: 283px; height: 130px;" class="spacer"></div>
-        <a style="" class="button button-positive button-clear button-block " ui-sref="tabsController.dashboardUser">Skip</a>
-    </ion-content>
+   <ion-content class="has-header" scroll="false" overflow-scroll="true" padding="true">
+      <form style="" class="list">
+         <ion-list style="">
+            <label style="" class="item item-input">
+               <span class="input-label">Username</span>
+                  <input placeholder="Email" type="text" ng-model="username" />
+            </label>
+            <label style="" class="item item-input">
+               <span class="input-label">Password</span>
+                  <input placeholder="Password" type="password" ng-model="password" />
+            </label>
+         </ion-list>
+         <div style="height: 40px;" class="spacer"></div>
+         <div style="" class="button-bar">
+            <a style="" class="button button-calm button-block " ui-sref="tabsController.dashboardUser">Login</a>
+         </div>
+         <a style="" class="button button-positive button-clear button-block " ui-sref="signup">Or create an account</a>
+     </form>
+   <div style="width: 283px; height: 130px;" class="spacer"></div>
+   <a style="" class="button button-positive button-clear button-block " ui-sref="tabsController.dashboardUser">Skip</a>
+   </ion-content>
 </ion-view>

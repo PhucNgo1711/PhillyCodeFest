@@ -1,22 +1,23 @@
 <ion-view style="" title="Profile">
     <ion-content class="has-header" overflow-scroll="true" padding="true">
-        <div style="line-height: 250px; background-color: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center;">
-            <i style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;" class="icon ion-image"></i>
+        <div style="line-height: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center;">
+            <!-- <i style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;" class="icon ion-image"></i> -->
+            <img style="height: 200px" ng-src="https://bossip.files.wordpress.com/2013/10/shutterstock_75670225.jpg">
         </div>
-        <h3 style="">Name</h3>
+        <h3 style="padding-left: 35%">{{ name }}</h3>
         <div style="" class="button-bar">
-            <button style="" class="button button-stable button-icon  icon-right ion-compose">10</button>
-            <button style="" class="button button-stable button-icon  icon-right ion-android-checkmark-circle">100</button>
-            <button style="" class="button button-stable button-icon  icon-right ion-trophy">3</button>
+            <button style="" class="button button-stable button-icon  icon-right ion-compose">{{ numberOfPost }}</button>
+            <button style="" class="button button-stable button-icon  icon-right ion-android-checkmark-circle">{{ points }}</button>
+            <button style="" class="button button-stable button-icon  icon-right ion-trophy">{{ rewards }}</button>
         </div>
-        <ion-list style="">
+        <ion-list style="" ng-repeat="post in posts">
             <ion-item style="" class="item-thumbnail-left">
-                <img>
-                <h2>Post</h2>
-                <p>Post Summary</p>
+                <img ng-src="{{ post.attachment }}">
+                <h2>{{ post.postName }}</h2>
+                <p>{{ summary[$index] }}</p>
             </ion-item>
-            <ion-item style="" class="item-divider">4 days ago</ion-item>
-            <ion-item style="" class="item-thumbnail-left">
+            <ion-item style="" class="item-divider">{{ timeAgo[$index] }} ago</ion-item>
+            <!-- <ion-item style="" class="item-thumbnail-left">
                 <img>
                 <h2>Post 2</h2>
                 <p>Post Summary</p>
@@ -27,7 +28,7 @@
                 <h2>Post 3</h2>
                 <p>Post summary</p>
             </ion-item>
-            <ion-item style="" class="item-divider">1 month ago</ion-item>
+            <ion-item style="" class="item-divider">1 month ago</ion-item> -->
         </ion-list>
     </ion-content>
 </ion-view>
