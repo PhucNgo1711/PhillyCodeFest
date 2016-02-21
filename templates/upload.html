@@ -1,31 +1,33 @@
+<<<<<<< HEAD
 <ion-view style="" title="Upload - {{username}}">
     <ion-content class="has-header" scroll="false" overflow-scroll="true" padding="true">
+=======
+<ion-view style="" title="Upload">
+    <ion-content class="has-header" overflow-scroll="true" padding="true">
+>>>>>>> origin/master
         <form style="" class="list">
             <label style="" name="Title" class="item item-input">
                 <span class="input-label">Title</span>
-                <input placeholder="Title" type="text">
+                <input placeholder="Title" type="text" />
             </label>
-            <label style="" class="item item-select">
-                <span class="input-label">Select</span>
-                <select>
-                    <option>Alert</option>
-                    <option>Question</option>
-                    <option>Other</option>
-                </select>
+            <label style="" class="item item-input item-select">
+                <div class="input-label">Category</div>
+                    <select ng-model="optionType" ng-options="op.option for op in ops" ng-change="optionChanged()"></select>
+            </label>
+            <label style="" class="item item-input item-select">
+                <div class="input-label">Detail</div>
+                    <select ng-model="detail" ng-options="d.info for d in details"></select>
             </label>
         </form>
-        <div style="">
-            <p>
-                <b>B</b>
-                <i>I</i>
-                <u>U</u>Attachment
-            </p>
-        </div>
         <form style="" class="list">
+            <h5 style="padding-left: 2%">Body</h5>
             <label style="" name="Body" class="item item-input">
-                <span class="input-label">Report</span><textarea placeholder="Body"> </textarea>
+                <textarea style="height: 200px" placeholder="Body" ng-model="postContent"></textarea>
             </label>
         </form>
-        <a style="" class="button button-positive button-block " ui-sref="tabsController.dashboardUser">Submit</a>
+
+        <button style="padding-left: 80%; margin-top: -20px; margin-bottom: 15px" class="button button-clear button-dark icon-left ion-paperclip" ng-click="getPhoto()">Photo</button>
+
+        <a style="" class="button button-positive button-block " ng-click="submit()" ui-sref="tabsController.dashboardUser">Submit</a>
     </ion-content>
 </ion-view>

@@ -1,5 +1,6 @@
 angular.module('app.services', [])
 
+<<<<<<< HEAD
 .factory('UserFactory', [function(){}])
 .service('UserService', [function(){
     var userInfo = "";
@@ -13,6 +14,24 @@ return {
       return userInfo;
     }
   };
+=======
+.factory('Camera', ['$q', function($q) {
+ 
+  return {
+    getPicture: function(options) {
+      var q = $q.defer();
+      
+      navigator.camera.getPicture(function(result) {
+        // Do any magic you need
+        q.resolve(result);
+      }, function(err) {
+        q.reject(err);
+      }, options);
+      
+      return q.promise;
+    }
+  }
+>>>>>>> origin/master
 }])
 
 .factory('ApiFactory', [function(){}])
