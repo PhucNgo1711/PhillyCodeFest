@@ -1,8 +1,9 @@
 angular.module('app.controllers', [])
 
-.controller('loginCtrl', function($scope) {
+.controller('loginCtrl', function($scope, ApiService) {
 	$scope.username = "USERNAME";
 	$scope.password = "PASSWORD";
+   
 })
 
 .controller('signupCtrl', function($scope) {
@@ -12,13 +13,26 @@ angular.module('app.controllers', [])
 	$scope.tel = "";
 })
 
-.controller('uploadCtrl', function($scope) {
-
+.controller('uploadCtrl', function($scope, UserService) {
+    $scope.username = UserService.get();
 })
 
-.controller('dashboardUserCtrl', function($scope) {
+.controller('dashboardUserCtrl', function($scope, UserService, ApiService, $stateParams) {
+    
 	$scope.searchText = "";
-
+    console.log('dashboard: ' + $stateParams.username);
+    
+    UserService.setUser($stateParams.username);
+    $scope.username = UserService.get();
+    
+    var user = ApiService.getUser($stateParams.username);
+    console.log('user: ' + user);
+    
+    if (user.length <= 0)
+    {
+        console.log('no user!');
+    }
+    
 	$scope.searchTextChanged = function () {
 
 	};
@@ -30,8 +44,9 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('profileCtrl', function($scope) {
-	$scope.name = "Phuc Ngo";
+.controller('profileCtrl', function($scope, UserService) {
+	$scope.username = UserService.get();
+    $scope.name = UserService.get();
 
 	$scope.posts = [
 	{ "postID" : 1111, "userID" : 1234, "postName": "Rubic", "postContent": "Rubic Cube Rubic Cube Rubic Cube Rubic Cube Rubic Cube Rubic Cube Rubic Cube Rubic Cube Rubic Cube Rubic Cube Rubic Cube Rubic Cube", "submissionTime": "02/20/2016 10:00:00", "attachment": "http://zoarchurch.co.uk/content/pages/uploaded_images/91.png" },
@@ -89,6 +104,6 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('notificationCtrl', function($scope) {
-
+.controller('notificationCtrl', function($scope, UserService) {
+    $scope.username = UserService.get();
 })

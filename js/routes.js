@@ -22,7 +22,7 @@ angular.module('app.routes', [])
       
     
       
-        
+     
     .state('signup', {
       url: '/pageSignup',
       templateUrl: 'templates/signup.html',
@@ -48,7 +48,8 @@ angular.module('app.routes', [])
       
         
     .state('tabsController.dashboardUser', {
-      url: '/pageUser',
+      url: '/pageUser?username',
+      params: {username: ''},
       views: {
         'tab8': {
           templateUrl: 'templates/dashboardUser.html',
