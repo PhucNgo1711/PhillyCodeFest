@@ -23,9 +23,19 @@ angular.module('app.controllers', [])
     
     $scope.optionCategoryChanged = function() 
     {
-        console.log('category changed');
+        console.log('category changed' + $scope.categories);
         $scope.getActivities();
     }
+    
+    $scope.setActivities = function() {
+        $scope.candidates = [];
+        $scope.getActivities();
+    };
+    
+    $scope.setCandidates = function() {
+        $scope.activities = [];
+        $scope.getCandidates();
+    };
     
     $scope.getActivities = function() {
     $http({
@@ -37,7 +47,6 @@ angular.module('app.controllers', [])
                 "Accept": "application/json"
             }
             }).then(function successCallback(response) {
-                console.log(response.data);
                 $scope.activities = response.data;
                 }
             , function errorCallback(response) {
