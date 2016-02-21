@@ -109,6 +109,7 @@ angular.module('app.routes', [])
         }
       }
     })
+<<<<<<< HEAD
        .state('tabsController.explore', {
       url: '/pageExplore',
       views: {
@@ -117,6 +118,27 @@ angular.module('app.routes', [])
           controller: 'exploreCtrl'
         }
       }
+=======
+
+
+
+    .state('goTo.post', {
+      url: '/postDetail?postID?username?postTitle?postContent?userName?status?rating?attachment',
+      views: {
+        'side-menu21': {
+          templateUrl: 'templates/post.html',
+          controller: 'postCtrl'
+        }
+      } 
+    })
+
+
+
+    .state('goTo', {
+      url: '/side-menu',
+      abstract:true,
+      templateUrl: 'templates/goTo.html'
+>>>>>>> origin/master
     })
         
       

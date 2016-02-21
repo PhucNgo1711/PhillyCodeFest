@@ -1,7 +1,5 @@
 
 <ion-view style="" title="Upload - {{username}}">
-    <ion-content class="has-header" scroll="false" overflow-scroll="true" padding="true">
-<ion-view style="" title="Upload">
     <ion-content class="has-header" overflow-scroll="true" padding="true">
         <form style="" class="list">
             <label style="" name="Title" class="item item-input">
@@ -16,6 +14,11 @@
                 <div class="input-label">Detail</div>
                     <select ng-model="detail" ng-options="d.info for d in details"></select>
             </label>
+            <div class="item range range-positive">
+                <i class="icon ion-sad-outline"></i>
+                <input type="range" name="volume" min="0" max="100" ng-model="rating">
+                <i class="icon ion-happy-outline"></i>
+            </div>
         </form>
         <form style="" class="list">
             <h5 style="padding-left: 2%">Body</h5>

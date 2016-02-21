@@ -1,4 +1,4 @@
-<ion-view style="" title="Profile - {{username}}">
+<ion-view style="" title="Profile - {{ username }}">
     <ion-content class="has-header" overflow-scroll="true" padding="true">
         <div style="line-height: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center;">
             <img style="height: 200px" ng-src="https://bossip.files.wordpress.com/2013/10/shutterstock_75670225.jpg" />
@@ -27,7 +27,7 @@
 
         <h4 style="padding-left: 2%">Posts</h4>
         <ion-list style="" ng-repeat="post in posts">
-            <ion-item style="" class="item-thumbnail-left">
+            <ion-item style="" class="item-thumbnail-left" ui-sref="goTo.post({ postID: post.postID, username: username, postTitle: post.postTitle, postContent: post.postContent, rating: post.rating, userName: post.userName, status: post.status, attachment: post.attachment})">
                 <img ng-src="{{ post.attachment }}" />
                 <h2>{{ post.postTitle }}</h2>
                 <p>{{ summary[$index] }}</p>
