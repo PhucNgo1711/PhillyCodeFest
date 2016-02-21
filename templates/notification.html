@@ -1,10 +1,8 @@
 <ion-view style="" title="Notification">
-    <ion-content class="has-header" overflow-scroll="true" padding="true">
-        <h3 style="">Notifications</h3>
-        <ion-list style="">
-            <ion-item style="">User1 replied to your post.</ion-item>
-            <ion-item style="">User2 edited your post.</ion-item>
-            <ion-item style="">User3 marked your post as duplicated.</ion-item>
-        </ion-list>
-    </ion-content>
+ 	<ion-content class="has-header" overflow-scroll="true" padding="true">
+ 		<ion-list style="" ng-repeat="noti in notifications">
+         <ion-item style="">{{ noti.notiContent }}.</ion-item>
+         <ion-item style="" class="item-divider">{{ timeAgo[$index] }} ago</ion-item>
+     	</ion-list>
+   </ion-content>
 </ion-view>

@@ -3,37 +3,24 @@
         <form style="" class="list">
             <label style="" name="Search User Post" class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input placeholder="Search post" type="search" ng-model="username">
+                <input placeholder="Search post" type="search" ng-model="searchText" ng-change="searchTextChanged()" />
             </label>
             <div style="" class="button-bar">
                 <button style="" class="button button-balanced button-outline button-block ">New</button>
                 <button style="" class="button button-balanced button-outline button-block ">Most viewed</button>
             </div>
             <div style="width: 283px; height: 19px;" class="spacer"></div>
-            <ion-item style="" class="item-thumbnail-left">
-                <img>
-                <h2>Post</h2>
-                <p>Summary</p>
-            </ion-item>
-            <ion-item style="" class="item-divider">1h ago</ion-item>
-            <ion-item style="" class="item-thumbnail-left">
-                <img>
-                <h2>Post</h2>
-                <p>Summary</p>
-            </ion-item>
-            <ion-item style="" class="item-divider">5h ago</ion-item>
-            <ion-item style="" class="item-thumbnail-left">
-                <img>
-                <h2>Post</h2>
-                <p>Summary</p>
-            </ion-item>
-            <ion-item style="" class="item-divider">6h ago</ion-item>
-            <ion-item style="" class="item-thumbnail-left">
-                <img>
-                <h2>Post</h2>
-                <p>Summary</p>
-            </ion-item>
-            <ion-item style="" class="item-divider">1 day ago</ion-item>
+            <ion-list style="" ng-repeat="post in posts">
+                <ion-item style="" class="item-thumbnail-left">
+                    <img ng-src="{{ post.attachment }}" />
+                    <h2>{{ post.postTitle }}</h2>
+                    <p>{{ summary[$index] }}</p>
+                    <p><b>{{ post.status }}</b></p>
+                    <p>Submitted by: {{ post.userName }}</p>
+
+                </ion-item>
+                <ion-item style="" class="item-divider">{{ timeAgo[$index] }} ago</ion-item>
+            </ion-list>
         </form>
     </ion-content>
 </ion-view>
