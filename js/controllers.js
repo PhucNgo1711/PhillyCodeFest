@@ -4,6 +4,29 @@ angular.module('app.controllers', [])
 	$scope.username = "USERNAME";
 	$scope.password = "PASSWORD";
    
+   //console.log('login controller');
+   //load(); //do not run
+   //function load()
+   /*
+{
+    var client = new WindowsAzure.MobileServiceClient("https://goodapp.azure-mobile.net/","hjPOhBdLJQKTtZuSlIDedWORUbDGdu53");
+    
+    getUserData().forEach(function(data) {
+        
+        
+            client.getTable("users").insert( data )
+            .done(function (result) {
+            console.log('add result: ' + JSON.stringify(result));
+                return result;
+            }, function (err) {
+            console.log("Error: " + err);
+            });
+            
+            console.log('add complete');
+    })    
+    
+}*/
+
 })
 
 .controller('signupCtrl', function($scope) {
@@ -236,9 +259,69 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('notificationCtrl', function($scope, UserService) {
+.controller('notificationCtrl', function($scope, $http, UserService, ApiService, $timeout) {
+    $scope.actions = ApiService.getTableData('actions');
+    console.log($scope.actions);
     $scope.username = UserService.get();
+    
 
+    console.log('actions: ' + $scope.actions);
+    console.log('calling recs with ' + $scope.username);
+    $http({
+            method: 'GET',
+            url: 'http://azuremlwrapper20160221122259.azurewebsites.net/api/machine/' + $scope.username,
+            headers:
+            {
+                "Content-Type":"application/json",
+                "Accept": "application/json"
+            }
+            }).then(function successCallback(response) {
+                // this callback will be called asynchronously
+                // when the response is available
+                $scope.recs = response.data;
+                console.log('got rec data');
+                console.log($scope.recs);
+               
+                console.log('loop ' + $scope.actions + ' ' + $scope.recs.Rec1)
+                $scope.info = [];
+                $scope.actions.then(function(acts)
+                {
+                    console.log('actions done');
+                    acts.forEach(function(act) { 
+                    
+                    console.log('looking for match for ' + act.actionID);
+                    if (act.actionID == $scope.recs.Rec5)
+                    {
+                        console.log('match for '+ act.actionID);
+                        $scope.info.push(act);
+                    }
+                    if (act.actionID == $scope.recs.Rec1)
+                    {
+                        $scope.info.push(act);
+                    }
+                    if (act.actionID == $scope.recs.Rec2)
+                    {
+                        $scope.info.push(act);
+                    }
+                    if (act.actionID == $scope.recs.Rec3)
+                    {
+                        $scope.info.push(act);
+                    }
+                    if (act.actionID == $scope.recs.Rec4)
+                    {
+                        $scope.info.push(act);
+                    }
+                     
+                     });
+                     console.log('info ' + $scope.info);
+                })}
+            , function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+    console.log($scope.recs);
+    console.log('called recs');
+    
 	$scope.notifications = [
 		{ "postID" : 1111, "userID" : 1234, "userName": "Joseph", "notiContent": "Joseph solved your report", "submissionTime": "02/20/2016 10:00:00" },
 		{ "postID" : 1111, "userID" : 1234, "userName": "Joe", "notiContent": "Joe commented on your post", "submissionTime": "01/07/2016 10:00:00" },
