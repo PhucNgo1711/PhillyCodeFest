@@ -2,11 +2,12 @@
 <ion-view style="" title="Explore - {{username}}">
  	<ion-content class="has-header" overflow-scroll="true" padding="true">
          
+         <div class="button-bar">
         <input class="button button-positive" type="button" ng-click="setActivities()" value="Activities" />
         <input class="button button-positive" type="button" ng-click="setCandidates()" value="Candidates" />
-         
+         </div>
          <ion-list style="" ng-repeat="action in activities">
-         <ion-item style="">{{ action.program_name }} - {{ action.age_description }} </ion-item>
+         <ion-item style="">{{ action.program_name }} {{ action.activity_type }} - {{ action.age_description }} </ion-item>
      	</ion-list>
  		<ion-list style="" ng-repeat="candidate in candidates">
          <ion-item style="">{{ candidate.office }} - {{ candidate.party }} <br/>
