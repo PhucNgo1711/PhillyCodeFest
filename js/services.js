@@ -1,6 +1,5 @@
 angular.module('app.services', [])
 
-<<<<<<< HEAD
 .factory('UserFactory', [function(){}])
 .service('UserService', [function(){
     var userInfo = "";
@@ -14,7 +13,7 @@ return {
       return userInfo;
     }
   };
-=======
+}])
 .factory('Camera', ['$q', function($q) {
  
   return {
@@ -31,7 +30,6 @@ return {
       return q.promise;
     }
   }
->>>>>>> origin/master
 }])
 
 .factory('ApiFactory', [function(){}])
@@ -139,6 +137,4 @@ return {
         }
     };
     
-}])
-;
-
+}]);

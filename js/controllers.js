@@ -13,15 +13,9 @@ angular.module('app.controllers', [])
 	$scope.tel = "";
 })
 
-<<<<<<< HEAD
 .controller('uploadCtrl', function($scope, UserService) {
-    $scope.username = UserService.get();
-})
-
-.controller('dashboardUserCtrl', function($scope, UserService, ApiService, $stateParams) {
     
-=======
-.controller('uploadCtrl', function($scope) {
+    $scope.username = UserService.get();
 	$scope.postTitle = "";
 
 	$scope.ops = [ 
@@ -72,10 +66,9 @@ angular.module('app.controllers', [])
   	}
 })
 
-.controller('dashboardUserCtrl', function($scope) {
+.controller('dashboardUserCtrl', function($scope, $stateParams, UserService, ApiService) {
 	// $scope.username
 
->>>>>>> origin/master
 	$scope.searchText = "";
     console.log('dashboard: ' + $stateParams.username);
     
@@ -243,11 +236,9 @@ angular.module('app.controllers', [])
 
 })
 
-<<<<<<< HEAD
 .controller('notificationCtrl', function($scope, UserService) {
     $scope.username = UserService.get();
-=======
-.controller('notificationCtrl', function($scope) {
+
 	$scope.notifications = [
 		{ "postID" : 1111, "userID" : 1234, "userName": "Joseph", "notiContent": "Joseph solved your report", "submissionTime": "02/20/2016 10:00:00" },
 		{ "postID" : 1111, "userID" : 1234, "userName": "Joe", "notiContent": "Joe commented on your post", "submissionTime": "01/07/2016 10:00:00" },
@@ -298,5 +289,5 @@ angular.module('app.controllers', [])
 	}
 
 	summarizePosts();
->>>>>>> origin/master
+
 })
