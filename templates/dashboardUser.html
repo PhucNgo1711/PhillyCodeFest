@@ -1,4 +1,4 @@
-<ion-view style="" title="Dashboard User - {{username}}">
+<ion-view style="" title="Dashboard User - {{ username }}">
     <ion-content class="has-header" overflow-scroll="true" padding="true">
         <form style="" class="list">
             <label style="" name="Search User Post" class="item item-input">
@@ -11,12 +11,12 @@
             </div>
             <div style="width: 283px; height: 19px;" class="spacer"></div>
             <ion-list style="" ng-repeat="post in posts">
-                <ion-item style="" class="item-thumbnail-left">
+                <ion-item style="" class="item-thumbnail-left" ui-sref="goTo.post({ postID: post.postID, username: username, postTitle: post.postTitle, postContent: post.postContent, userName: post.userName, rating: post.rating, status: post.status, attachment: post.attachment})">
                     <img ng-src="{{ post.attachment }}" />
                     <h2>{{ post.postTitle }}</h2>
                     <p>{{ summary[$index] }}</p>
                     <p><b>{{ post.status }}</b></p>
-                    <p>Submitted by: {{ post.userName }}</p>
+                    <p><u>Submitted by: {{ post.userName }}</u></p>
 
                 </ion-item>
                 <ion-item style="" class="item-divider">{{ timeAgo[$index] }} ago</ion-item>

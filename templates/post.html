@@ -1,0 +1,44 @@
+<ion-view style="" title="Post - {{ username }}">
+    <ion-content class="has-header" overflow-scroll="true" padding="true">
+        <div class="row">
+            <h3 style="margin-top: 8px; margin-bottom: 0px; margin-left: 5px">{{ postTitle }}</h3>
+            <img ng-hide="rating > 30 || rating < 70" style="margin-left: 10px; margin-top: 5px; height:30px; width: 30px" src="http://image005.flaticon.com/1/svg/75/75404.svg"></img>
+            <img ng-hide="rating >= 70" style="margin-left: 10px; margin-top: 5px; height:30px; width: 30px" src="http://image005.flaticon.com/1/svg/105/105636.svg"></img>
+            <img ng-hide="rating <= 30" style="margin-left: 10px; margin-top: 5px; height:30px; width: 30px" src="http://image005.flaticon.com/1/svg/105/105670.svg"></img>
+            <!-- <i class="icon ion-happy-outline"></i>
+            <i class="icon ion-happy-outline"></i> -->
+
+            <!-- <button style="" ng-hide="rating > 50" class="button button-clear button-dark icon ion-sad-outline"></button>
+            <button style="" ng-hide="rating <= 50" class="button button-clear button-dark icon ion-happy-outline"></button> -->
+        </div> 
+        <div class="row">
+            <button style="" class="button button-clear button-balanced icon-right ion-checkmark" ng-click="changeStatus()"><b>{{ status }}</b></button>
+            <button style="margin-left: 10px; margin-top: -2px" class="button button-clear button-assertive icon-right ion-alert" ng-click="markDuplicate()"><b>Mark Duplicate</b></button>
+        </div>
+        <form style="" class="list">
+            <label style="" class="item item-input">
+                <textarea style="height: 150px" ng-model="postContent"></textarea>
+            </label>
+        </form>
+        <div class="row">
+            <img style="margin-left: 65%; height: 35px; width: 35px; margin-bottom: 15px; margin-top: -10px" ng-src="https://bossip.files.wordpress.com/2013/10/shutterstock_75670225.jpg" />
+            <h5 style="margin-left: 2%; margin-top: 1%; color: #00BFFF" >{{ userName }}</h5> 
+        </div>
+        <div style="margin-left: 50%; margin-top: -3%" class="row">
+            <button style="width: 55px" class="button button-small button-stable button-icon icon-right ion-compose">{{ numberOfPost }}</button>
+            <button style="width: 55px" class="button button-small button-stable button-icon icon-right ion-android-checkmark-circle">{{ points }}</button>
+            <button style="width: 55px" class="button button-small button-stable button-icon icon-right ion-trophy">{{ rewards }}</button>
+        </div>
+        <div style="width: 283px; height: 10px;" class="spacer"></div>
+        <label style="" class="item item-input">
+            <input placeholder="Comment..." type="text" ng-model="comment" ng-change="searchTextChanged()" />
+        </label>
+        <button style="margin-left: 70%; margin-top: 5px" class="button button-outline button-positive" ng-click="addComment()"><b>Comment</b></button>
+        <div style="width: 283px; height: 19px;" class="spacer"></div>
+        <h4 style="padding-left: 2%">Comments</h4>
+        <ion-list style="" ng-repeat="cm in comments">
+            <ion-item style="" class="item-divider">{{ cm.username }} commented {{ timeAgo[$index] }} ago</ion-item>
+            <ion-item style="">{{ cm.content }}</ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
