@@ -1,0 +1,17 @@
+
+<ion-view style="" title="Notification - {{username}}">
+ 	<ion-content class="has-header" overflow-scroll="true" padding="true">
+         
+        <label style="" class="item item-input item-select">
+            <div class="input-label">Category</div>
+                <select ng-model="categories" ng-options="m.category for m in categories" ng-change="optionCategoryChanged()"></select>
+        </label>
+         
+         <ion-list style="" ng-repeat="action in activities">
+         <ion-item style="">{{ action.program_name }} - {{ action.age_description }} </ion-item>
+     	</ion-list>
+ 		<ion-list style="" ng-repeat="candidate in candidates">
+         <ion-item style="">{{ candidate.office }} - {{ candidate.party }} - {{ candidate.last }}</ion-item>
+     	</ion-list>
+   </ion-content>
+</ion-view>

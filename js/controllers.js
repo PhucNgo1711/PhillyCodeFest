@@ -36,6 +36,61 @@ angular.module('app.controllers', [])
 	$scope.tel = "";
 })
 
+.controller('exploreCtrl', function($scope, $http) {
+    
+    console.log('adding categories');
+    $scope.categories = [];
+    $scope.categories.push({category:'Select a Category'});
+    $scope.categories.push({category:'Candidates'});
+    $scope.categories.push({category:'Youth Activities'});
+    
+    $scope.optionCategoryChanged = function() 
+    {
+        console.log('category changed');
+        $scope.getActivities();
+    }
+    
+    $scope.getActivities = function() {
+    $http({
+            method: 'GET',
+            url: 'https://data.phila.gov/resource/66tr-i72h.json',
+            headers:
+            {
+                "Content-Type":"application/json",
+                "Accept": "application/json"
+            }
+            }).then(function successCallback(response) {
+                console.log(response.data);
+                $scope.activities = response.data;
+                }
+            , function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+    };
+    
+    
+        $scope.getCandidates = function() {
+    $http({
+            method: 'GET',
+            url: 'https://data.phila.gov/resource/kbkg-6jxf.json',
+            headers:
+            {
+                "Content-Type":"application/json",
+                "Accept": "application/json"
+            }
+            }).then(function successCallback(response) {
+                $scope.candidates = response.data;
+                }
+            , function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+    };
+    
+    
+})
+
 .controller('uploadCtrl', function($scope, UserService) {
     
     $scope.username = UserService.get();

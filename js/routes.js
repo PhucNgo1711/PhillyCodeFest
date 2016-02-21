@@ -94,6 +94,8 @@ angular.module('app.routes', [])
       abstract:true,
       templateUrl: 'templates/tabsController.html'
     })
+    
+    
       
     
       
@@ -104,6 +106,15 @@ angular.module('app.routes', [])
         'tab11': {
           templateUrl: 'templates/notification.html',
           controller: 'notificationCtrl'
+        }
+      }
+    })
+       .state('tabsController.explore', {
+      url: '/pageExplore',
+      views: {
+        'tab12': {
+          templateUrl: 'templates/explore.html',
+          controller: 'exploreCtrl'
         }
       }
     })
