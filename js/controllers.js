@@ -3,29 +3,6 @@ angular.module('app.controllers', [])
 .controller('loginCtrl', function($scope, ApiService) {
 	$scope.username = "USERNAME";
 	$scope.password = "PASSWORD";
-   
-   //console.log('login controller');
-   //load(); //do not run
-   //function load()
-   /*
-{
-    var client = new WindowsAzure.MobileServiceClient("https://goodapp.azure-mobile.net/","hjPOhBdLJQKTtZuSlIDedWORUbDGdu53");
-    
-    getUserData().forEach(function(data) {
-        
-        
-            client.getTable("users").insert( data )
-            .done(function (result) {
-            console.log('add result: ' + JSON.stringify(result));
-                return result;
-            }, function (err) {
-            console.log("Error: " + err);
-            });
-            
-            console.log('add complete');
-    })    
-    
-}*/
 
 })
 
@@ -36,7 +13,6 @@ angular.module('app.controllers', [])
 	$scope.tel = "";
 })
 
-<<<<<<< HEAD
 .controller('exploreCtrl', function($scope, $http) {
     
     console.log('adding categories');
@@ -91,16 +67,10 @@ angular.module('app.controllers', [])
     
     
 })
-
-.controller('uploadCtrl', function($scope, UserService) {
-    
-    $scope.username = UserService.get();
-=======
 .controller('uploadCtrl', function($scope, UserService) { 
    $scope.username = UserService.get();
    $scope.name = UserService.get();
 
->>>>>>> origin/master
 	$scope.postTitle = "";
 
 	$scope.ops = [ 

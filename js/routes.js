@@ -8,21 +8,14 @@ angular.module('app.routes', [])
   // Each state's controller can be found in controllers.js
   $stateProvider
     
-  
-
-  
-      
-        
+ 
     .state('login', {
       url: '/pageLogin',
       templateUrl: 'templates/login.html',
       controller: 'loginCtrl'
     })
         
-      
-    
-      
-     
+  
     .state('signup', {
       url: '/pageSignup',
       templateUrl: 'templates/signup.html',
@@ -31,8 +24,6 @@ angular.module('app.routes', [])
         
       
     
-      
-        
     .state('tabsController.upload', {
       url: '/pageUpload',
       views: {
@@ -42,10 +33,7 @@ angular.module('app.routes', [])
         }
       }
     })
-        
-      
-    
-      
+   
         
     .state('tabsController.dashboardUser', {
       url: '/pageUser?username',
@@ -58,10 +46,7 @@ angular.module('app.routes', [])
       }
     })
         
-      
-    
-      
-        
+   
     .state('tabsController.dashboardSponsor', {
       url: '/pageSponsor',
       views: {
@@ -72,10 +57,7 @@ angular.module('app.routes', [])
       }
     })
         
-      
-    
-      
-        
+     
     .state('tabsController.profile', {
       url: '/pageProfile',
       views: {
@@ -85,8 +67,6 @@ angular.module('app.routes', [])
         }
       }
     })
-        
-      
     
       
     .state('tabsController', {
@@ -95,11 +75,7 @@ angular.module('app.routes', [])
       templateUrl: 'templates/tabsController.html'
     })
     
-    
-      
-    
-      
-        
+
     .state('tabsController.notification', {
       url: '/pageNoti',
       views: {
@@ -109,7 +85,6 @@ angular.module('app.routes', [])
         }
       }
     })
-<<<<<<< HEAD
        .state('tabsController.explore', {
       url: '/pageExplore',
       views: {
@@ -117,11 +92,7 @@ angular.module('app.routes', [])
           templateUrl: 'templates/explore.html',
           controller: 'exploreCtrl'
         }
-      }
-=======
-
-
-
+      }})
     .state('goTo.post', {
       url: '/postDetail?postID?username?postTitle?postContent?userName?status?rating?attachment',
       views: {
@@ -132,18 +103,12 @@ angular.module('app.routes', [])
       } 
     })
 
-
-
     .state('goTo', {
       url: '/side-menu',
       abstract:true,
       templateUrl: 'templates/goTo.html'
->>>>>>> origin/master
-    })
-        
-      
-    ;
-
+    });
+       
   // if none of the above states are matched, use this as the fallback
   
   $urlRouterProvider.otherwise('/pageLogin');
